@@ -6,6 +6,7 @@ const http = require("http").Server(app);
 const dotenv = require("dotenv").config();
 
 const userRouter = require("./router/users");
+const thoughtsRouter = require("./router/thoughts")
 
 const corsOptions = {
     origin: "*",
@@ -17,7 +18,7 @@ app.use(cors(corsOptions));
 const { connect, connection } = require("mongoose");
 
 const connectionString =
-    process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mood-app";
+    process.env.MONGODB_URI;
 
 connect(connectionString, {
     useNewUrlParser: true,
@@ -27,9 +28,10 @@ connect(connectionString, {
 });
 
 app.use("/api/users", userRouter);
+app.use("/api/thoughts", thoughtsRouter);
 
 http
-    .listen(3000, console.log("server is runnig on port 3000"))
+    .listen(process.env.SERVER_PORT, console.log("server is runnig on port ", process.env.SERVER_PORT))
     .on("error", function (error) {
         console.log("server error ===", error);
     });

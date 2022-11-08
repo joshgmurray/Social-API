@@ -19,7 +19,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log(req.body);
     User.create(new User(req.body)).then((user) => {
         console.log('add new user ===', user);
         res.status(200).json(user);
