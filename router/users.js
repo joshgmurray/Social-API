@@ -29,8 +29,8 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    User.deleteOne(req.params.id, (res) => {
-        if(res) {
+    User.deleteOne(req.params.id, (data) => {
+        if(data) {
             res.status(500).send("user delete success");
         } 
     }).catch((err) => console.log(err))
