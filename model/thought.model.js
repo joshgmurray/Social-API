@@ -12,7 +12,7 @@ const Thought = mongoose.model(
         },
         createdAt: {
             type: moongoose.Schema.Types.Date,
-            default: Date.now
+            // default: Date.now
         },
         username: {
             type: mongoose.Schema.Types.String,

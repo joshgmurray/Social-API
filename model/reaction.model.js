@@ -1,8 +1,8 @@
 const { default: mongoose } = require('mongoose')
 const moongoose = require('mongoose')
 
-const User = mongoose.model(
-    "User",
+const Reaction = mongoose.model(
+    "Reaction",
     new mongoose.Schema({
         reactionId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -17,10 +17,10 @@ const User = mongoose.model(
             required: true
         },
         createdAt: {
-            teype: moongoose.Schema.Types.Date,
-            default: Date.now
+            type: moongoose.Schema.Types.Date,
+            default: Date.now()
         }
     })
 )
 
-module.exports = User;
+module.exports = Reaction;
